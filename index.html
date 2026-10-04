@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Upload</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Source+Code+Pro:wght@500;600;700&family=Young+Serif&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <aside class="panel">
+        <div class="panel-header">
+          <h1>Student Upload</h1>
+          <span class="count-pill" id="studentCount">0 students</span>
+        </div>
+
+        <form id="studentForm" novalidate>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" placeholder="Enter student name" />
+            <p class="error-message" data-error-for="name"></p>
+          </div>
+
+          <div class="field">
+            <label for="matric">Matric number</label>
+            <input id="matric" name="matric" type="text" placeholder="23/024145123" />
+            <p class="error-message" data-error-for="matric"></p>
+          </div>
+
+          <div class="field">
+            <label for="level">Level</label>
+            <select id="level" name="level">
+              <option value="">Choose level</option>
+              <option value="100">100 Level</option>
+              <option value="200">200 Level</option>
+              <option value="300">300 Level</option>
+              <option value="400">400 Level</option>
+              <option value="500">500 Level</option>
+              <option value="600">600 Level</option>
+            </select>
+            <p class="error-message" data-error-for="level"></p>
+          </div>
+
+          <div class="field">
+            <label for="department">Department</label>
+            <input id="department" name="department" type="text" list="departments" placeholder="Enter department" />
+            <datalist id="departments">
+              <option value="Computer Science"></option>
+              <option value="Accounting"></option>
+              <option value="Mass Communication"></option>
+              <option value="Biology"></option>
+              <option value="Chemistry"></option>
+              <option value="Economics"></option>
+              <option value="Physics"></option>
+              <option value="Mathematics"></option>
+              <option value="Business Administration"></option>
+              <option value="Political Science"></option>
+            </datalist>
+            <p class="error-message" data-error-for="department"></p>
+          </div>
+
+          <button class="primary-btn" type="submit">Add student</button>
+        </form>
+      </aside>
+
+      <main class="register-panel">
+        <div class="register-actions">
+          <button id="toggleNamesBtn" class="secondary-btn" type="button">Done, show names</button>
+          <button id="removeLastBtn" class="danger-btn" type="button" disabled>Remove last</button>
+        </div>
+
+        <div class="register-header">
+          <h2>Student register</h2>
+          <span class="count-pill secondary-count" id="registerCount">0</span>
+        </div>
+
+        <div id="studentGrid" class="student-grid" aria-live="polite"></div>
+
+        <div id="emptyState" class="empty-state">
+          <p>No students have been added yet.</p>
+          <button id="sampleBtn" class="sample-btn" type="button">Add 3 sample students</button>
+        </div>
+
+        <div id="namesPanel" class="names-panel hidden" aria-live="polite">
+          <h3>Student names</h3>
+          <div id="namesList" class="names-list"></div>
+        </div>
+
+        <p id="statusMessage" class="status-message" aria-live="polite"></p>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
